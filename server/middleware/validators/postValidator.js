@@ -1,0 +1,13 @@
+const { body } = require("express-validator");
+
+exports.createPostValidator = [
+  body("title").notEmpty().withMessage("Title is required"),
+  body("content").notEmpty().withMessage("Content is required"),
+  body("category").notEmpty().withMessage("Category is required"),
+];
+
+exports.updatePostValidator = [
+  body("title").optional().notEmpty().withMessage("Title cannot be empty"),
+  body("content").optional().notEmpty().withMessage("Content cannot be empty"),
+  body("category").optional().notEmpty().withMessage("Category cannot be empty"),
+];
